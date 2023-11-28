@@ -1,0 +1,110 @@
+$color_1: #fff;
+$color_2: var(--plyr-video-control-color-hover,#fff);
+$background-color_1: transparent;
+$background-color_2: var(--plyr-color-main,#00b2ff);
+
+:root {
+	--plyr-color-main: #4611a7;
+}
+.plyr__control {
+	background-color: $background-color_1 !important;
+}
+.plyr__control--overlaid {
+	background-color: $background-color_2 !important;
+	&:focus {
+		background-color: $background-color_2 !important;
+	}
+	&:hover {
+		background-color: $background-color_2 !important;
+	}
+}
+.plyr__video-embed {
+	iframe {
+		pointer-events: none !important;
+		-webkit-user-select: none !important;
+		-moz-user-select: none !important;
+		-ms-user-select: none !important;
+		user-select: none !important;
+	}
+}
+.plyr--video {
+	.plyr__control {
+		&:focus-visible {
+			background: var(--plyr-video-control-background-hover,var(--plyr-color-main,var(--plyr-color-main,#00b2ff))) !important;
+			color: $color_1;
+			color: $color_2;
+		}
+		&:hover {
+			background: var(--plyr-video-control-background-hover,var(--plyr-color-main,var(--plyr-color-main,#00b2ff))) !important;
+			color: $color_1;
+			color: $color_2;
+		}
+	}
+	.plyr__control[aria-expanded=true] {
+		background: var(--plyr-video-control-background-hover,var(--plyr-color-main,var(--plyr-color-main,#00b2ff))) !important;
+		color: $color_1;
+		color: $color_2;
+	}
+}
+wiseplay-video {
+	aspect-ratio: 16/9;
+	max-width: 100%;
+	display: block;
+	background: #4c4c4c;
+	border-radius: 12px;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	box-shadow: 0 1px 10px 0 rgba(0,0,0,0.3);
+	.plyr {
+		video {
+			aspect-ratio: 16/9;
+			width: 100% !important;
+		}
+	}
+    .plyr__video-embed,
+    .plyr__video-wrapper--fixed-ratio {
+        aspect-ratio: 16 / 9 !important;
+    }
+}
+.wpvp-player-facade {
+	.play-btn {
+		background: transparent;
+		border: 0;
+		border-radius: 100%;
+		transition: .3s;
+		z-index: 2;
+		position: absolute;
+	}
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	inset: 0;
+	height: 100%;
+	&::before {
+		transition: 0.5s;
+		content: '';
+		display: block;
+		height: 100%;
+		width: 100%;
+		background: #000000;
+		z-index: 1;
+		position: absolute;
+		opacity: 0;
+	}
+	&:hover.wpvp-player-facade {
+		&::before {
+			opacity: 0.4;
+		}
+		.play-btn {
+			transform: scale(1.15);
+		}
+	}
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
